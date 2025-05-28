@@ -480,6 +480,7 @@ MonoBehaviour:
   - {fileID: 8151794873062245042, guid: 8a805cea907403946bab109f6f87280b, type: 3}
   - {fileID: 2498456690062040279, guid: ced270e7526f168499a9a10275106d77, type: 3}
   - {fileID: 1031058799225045828, guid: 65887767c52ac884a9335dd8a39b6275, type: 3}
+  - {fileID: 7122457937209040124, guid: 9fef0b061e09a504ebfe57234e332ba6, type: 3}
   distanciaDaCamera: 0
 --- !u!4 &703320637
 Transform:
@@ -489,7 +490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703320635}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.50121284, y: 1.1022844, z: -0.45538315}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
