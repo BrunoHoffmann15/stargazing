@@ -1,11 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using TMPro;
 
 public class SpawnPlanet : MonoBehaviour
 {
     public List<GameObject> prefabObj;
     public float distanciaDaCamera = 1.5f;
+    public TMP_Text title;
+    public TMP_Text description;
+    public GameObject canvas;
+    private CanvasGroup canvasGroup;
 
     private GameObject sunAnchor;
 
@@ -36,8 +41,20 @@ public class SpawnPlanet : MonoBehaviour
 
     void Start()
     {
+        SetUpCanvas();
         SpawnSun();
         SpawnPlanets();
+    }
+
+    void SetUpCanvas()
+    {
+        canvasGroup = canvas.GetComponent<CanvasGroup>();
+
+        canvas.SetActive(false);
+        canvasGroup.enabled = false;
+        canvasGroup.alpha = 0f;               // Torna invisível
+        canvasGroup.interactable = false;     // Desativa interações
+        canvasGroup.blocksRaycasts = false;   // Bloqueia cliques
     }
 
     void SpawnSun()
@@ -100,6 +117,11 @@ public class SpawnPlanet : MonoBehaviour
             // Attach PlanetInfo and set planetName
             var info = planetInstance.AddComponent<PlanetInfo>();
             info.planetName = planetName;
+            
+            info.canva = canvasGroup;
+            info.canva2 = canvas;
+            info.title = title;
+            info.description = description;
 
             currentDistance += planetDistanceStep;
         }
@@ -126,6 +148,16 @@ public class SpawnPlanet : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void BUTTOOOONN()
+    {
+        canvas.SetActive(false);
+        canvasGroup.enabled = false;
+        canvasGroup.alpha = 0f;               // Torna invisível
+        canvasGroup.interactable = false;     // Desativa interações
+        canvasGroup.blocksRaycasts = false;   // Bloqueia cliques
+        PlanetOrbit.SetPaused(false);
     }
 }
 
@@ -167,6 +199,10 @@ public class PlanetInfo : MonoBehaviour
     public string planetName;
     private static Dictionary<string, string> planetDescriptions;
     private static bool showingInfo = false;
+    public CanvasGroup canva;
+    public GameObject canva2;
+    public TMP_Text title;
+    public TMP_Text description;
 
     void Start()
     {
@@ -176,17 +212,18 @@ public class PlanetInfo : MonoBehaviour
 
     void OnMouseDown()
     {
-        showingInfo = !showingInfo;
-        PlanetOrbit.SetPaused(showingInfo);
+        if (planetDescriptions != null && planetDescriptions.ContainsKey(planetName.ToLower()))
+        {
+            // Debug.Log($"Planet: {planetName}\n{planetDescriptions[planetName.ToLower()]}");
+            canva.alpha = 1f;               // Torna visível
+            canva.interactable = true;
+            canva.blocksRaycasts = true;
+            canva2.SetActive(true);
+            title.text = planetName;
 
-        if (showingInfo && planetDescriptions != null && planetDescriptions.ContainsKey(planetName.ToLower()))
-        {
-            Debug.Log($"Planet: {planetName}\n{planetDescriptions[planetName.ToLower()]}");
+            PlanetOrbit.SetPaused(true);
+            description.text = planetDescriptions[planetName.ToLower()];
             // Show UI panel here if needed
-        }
-        else if (!showingInfo)
-        {
-            Debug.Log("Resuming planet orbits.");
         }
     }
 

@@ -1,34 +1,38 @@
 [
     {
+        "name": "sun",
+        "description": "O Sol é uma estrela localizada no centro do Sistema Solar. Sua energia torna possível a vida na Terra, controlando o clima e os ciclos naturais. É composto principalmente por hidrogênio e hélio, e representa 99,8% da massa total do sistema."
+    },
+    {
         "name": "mercury",
-        "description": "Mercury is the closest planet to the Sun."
+        "description": "Mercúrio é o planeta mais próximo do Sol e o menor do Sistema Solar. Possui superfície rochosa, cheia de crateras, e não tem atmosfera significativa. Suas temperaturas variam drasticamente entre o dia escaldante e a noite congelante."
     },
     {
         "name": "venus",
-        "description": "Venus is the second planet from the Sun and has a thick atmosphere."
+        "description": "Vênus é o segundo planeta do Sistema Solar e o mais quente, devido ao forte efeito estufa causado por sua densa atmosfera de dióxido de carbono. Sua superfície é coberta por nuvens ácidas e possui muitos vulcões e montanhas."
     },
     {
         "name": "earth",
-        "description": "Earth is our home planet and the only one known to support life."
+        "description": "A Terra é o terceiro planeta a partir do Sol e o único conhecido a abrigar vida. Possui água em estado líquido, atmosfera rica em oxigênio e uma diversidade de ecossistemas. A sua superfície é dividida entre continentes e oceanos."
     },
     {
         "name": "mars",
-        "description": "Mars is known as the Red Planet."
+        "description": "Marte, o Planeta Vermelho, é o quarto a partir do Sol. Tem solo avermelhado por causa do óxido de ferro, calotas polares, montanhas e o maior vulcão do Sistema Solar. Cientistas buscam sinais de vida passada ou presente em seu solo."
     },
     {
         "name": "jupiter",
-        "description": "Jupiter is the largest planet in the Solar System."
+        "description": "Júpiter é o maior planeta do Sistema Solar, um gigante gasoso composto por hidrogênio e hélio. É conhecido pela Grande Mancha Vermelha, uma tempestade gigante, e por seus mais de 90 satélites naturais, incluindo Ganimedes e Europa."
     },
     {
         "name": "saturn",
-        "description": "Saturn is famous for its beautiful rings."
+        "description": "Saturno é o segundo maior planeta e é famoso por seu sistema de anéis, compostos de gelo e poeira. Também é um gigante gasoso com dezenas de luas, incluindo Titã, que possui atmosfera densa e pode conter oceanos subterrâneos."
     },
     {
         "name": "uranus",
-        "description": "Uranus rotates on its side and has a blue-green color."
+        "description": "Urano é um gigante gasoso com coloração azul-esverdeada devido ao metano em sua atmosfera. Ele gira praticamente de lado, o que causa estações extremas. Sua atmosfera é composta por hidrogênio, hélio e metano congelado."
     },
     {
         "name": "neptune",
-        "description": "Neptune is the farthest planet from the Sun."
+        "description": "Netuno é o planeta mais distante do Sol. É um gigante gasoso de coloração azul intensa e possui ventos extremamente fortes, os mais rápidos do Sistema Solar. Sua atmosfera é composta por hidrogênio, hélio e metano."
     }
 ]
