@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class SpawnPlanet : MonoBehaviour
 {
@@ -123,6 +124,12 @@ public class SpawnPlanet : MonoBehaviour
             info.title = title;
             info.description = description;
 
+            // Garante que o planeta tenha um collider
+            if (planetInstance.GetComponent<Collider>() == null)
+            {
+                planetInstance.AddComponent<SphereCollider>();
+            }
+
             currentDistance += planetDistanceStep;
         }
     }
@@ -176,7 +183,8 @@ public class PlanetOrbit : MonoBehaviour
     {
         if (sunAnchor != null && !paused)
         {
-            transform.RotateAround(sunAnchor.position, Vector3.up, orbitSpeed * Time.deltaTime);
+            float newOrbitSpeedWithFactor = orbitSpeed * VelocityManager.GetVelocity();
+            transform.RotateAround(sunAnchor.position, Vector3.up, newOrbitSpeedWithFactor * Time.deltaTime);
         }
     }
 
