@@ -36,7 +36,11 @@ public class ConfigurationManager : MonoBehaviour
 
         if (velocity == 0)
         {
-            velocityInfo.text = "Paused";
+            velocityInfo.text = "Pausado";
+        } 
+        else if (velocity == 1)
+        {
+            velocityInfo.text = "Normal";
         } 
         else
         {
