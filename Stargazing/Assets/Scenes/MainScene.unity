@@ -548,8 +548,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 618, y: -799}
-  m_SizeDelta: {x: 995.9116, y: 618.1324}
+  m_AnchoredPosition: {x: 584.96, y: -799}
+  m_SizeDelta: {x: 929.82, y: 618.1324}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &313035676
 MonoBehaviour:
@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8666667}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1560,8 +1560,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 618, y: -298}
-  m_SizeDelta: {x: 995.9023, y: 149.0049}
+  m_AnchoredPosition: {x: 584.96, y: -298}
+  m_SizeDelta: {x: 929.82, y: 149.0049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &819086359
 MonoBehaviour:
@@ -2320,7 +2320,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203218553}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}

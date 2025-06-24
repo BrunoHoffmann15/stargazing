@@ -40,6 +40,20 @@ public class SpawnPlanet : MonoBehaviour
         {"neptune", 24622f}
     };
 
+    public static readonly Dictionary<string, string> PlanetPortugueseName = new Dictionary<string, string>
+    {
+        {"sun", "Sol"},
+        {"mercury", "Mercúrio"},
+        {"venus", "Vênus"},
+        {"earth", "Terra"},
+        {"mars", "Marte"},
+        {"jupiter", "Júpiter"},
+        {"saturn", "Saturno"},
+        {"uranus", "Urano"},
+        {"neptune", "Netuno"}
+    };
+
+
     void Start()
     {
         SetUpCanvas();
@@ -124,6 +138,37 @@ public class SpawnPlanet : MonoBehaviour
             info.title = title;
             info.description = description;
 
+            // === Criar objeto do texto ===
+            GameObject labelObject = new GameObject("Label_" + planetName);
+            labelObject.transform.SetParent(planetInstance.transform);
+
+            // Posição *acima* do planeta (ajuste Y se quiser mais alto)
+            labelObject.transform.localPosition = new Vector3(0, 1.5f, 0);
+            labelObject.transform.localRotation = Quaternion.identity;
+
+            // Adiciona o texto
+            TextMeshPro textMesh = labelObject.AddComponent<TextMeshPro>();
+            textMesh.text = PlanetPortugueseName[planetName];
+            textMesh.fontSize = 100f;
+            textMesh.enableAutoSizing = true;
+            textMesh.alignment = TextAlignmentOptions.Center;
+            textMesh.color = Color.white;
+            textMesh.rectTransform.sizeDelta = new Vector2(40f, 3f); // largura/altura do espaço do texto
+
+            // Escala fixa pequena (ajustável)
+            if (planetRadius < 6371.0f)
+            {
+                labelObject.transform.localScale = Vector3.one * 0.65f;
+            } 
+            else
+            {
+                labelObject.transform.localScale = Vector3.one * 0.15f;
+            }
+            
+
+            // Faz o texto olhar para a câmera
+            labelObject.AddComponent<Billboard>();
+
             // Garante que o planeta tenha um collider
             if (planetInstance.GetComponent<Collider>() == null)
             {
@@ -165,6 +210,18 @@ public class SpawnPlanet : MonoBehaviour
         canvasGroup.interactable = false;     // Desativa interações
         canvasGroup.blocksRaycasts = false;   // Bloqueia cliques
         PlanetOrbit.SetPaused(false);
+    }
+}
+
+public class Billboard : MonoBehaviour 
+{
+    void LateUpdate()
+    {
+        if (Camera.main != null)
+        {
+            transform.LookAt(Camera.main.transform);
+            transform.Rotate(0, 180, 0); // Corrige a rotação se o texto estiver invertido
+        }
     }
 }
 
@@ -227,7 +284,7 @@ public class PlanetInfo : MonoBehaviour
             canva.interactable = true;
             canva.blocksRaycasts = true;
             canva2.SetActive(true);
-            title.text = planetName;
+            title.text = SpawnPlanet.PlanetPortugueseName[planetName];
 
             PlanetOrbit.SetPaused(true);
             description.text = planetDescriptions[planetName.ToLower()];
