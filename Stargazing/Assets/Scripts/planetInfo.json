@@ -1,38 +1,38 @@
 [
     {
         "name": "sun",
-        "description": "O Sol é uma estrela localizada no centro do Sistema Solar. Sua energia torna possível a vida na Terra, controlando o clima e os ciclos naturais. É composto principalmente por hidrogênio e hélio, e representa 99,8% da massa total do sistema."
+        "description": "Tipo: Estrela\nNúmero de satélites: 0\nTamanho: 1.391.000 km de diâmetro\nMassa: 1,989 × 10^30 kg\nPossui Anéis: Não\nComposição: Hidrogênio e Hélio\nCuriosidade: A luz solar leva 8 minutos para alcançar Terra."
     },
     {
         "name": "mercury",
-        "description": "Mercúrio é o planeta mais próximo do Sol e o menor do Sistema Solar. Possui superfície rochosa, cheia de crateras, e não tem atmosfera significativa. Suas temperaturas variam drasticamente entre o dia escaldante e a noite congelante."
+        "description": "Tipo: Planeta rochoso\nNúmero de satélites: 0\nTamanho: 4.879 km de diâmetro\nMassa: 3,30 × 10^23 kg\nPossui Anéis: Não\nComposição: Rocha e metal\nCuriosidade: Um dia em Mercúrio dura mais que seu ano."
     },
     {
         "name": "venus",
-        "description": "Vênus é o segundo planeta do Sistema Solar e o mais quente, devido ao forte efeito estufa causado por sua densa atmosfera de dióxido de carbono. Sua superfície é coberta por nuvens ácidas e possui muitos vulcões e montanhas."
+        "description": "Tipo: Planeta rochoso\nNúmero de satélites: 0\nTamanho: 12.104 km de diâmetro\nMassa: 4,87 × 10^24 kg\nPossui Anéis: Não\nComposição: Rocha e metal\nCuriosidade: Vênus gira ao contrário da maioria dos planetas conhecidos."
     },
     {
         "name": "earth",
-        "description": "A Terra é o terceiro planeta a partir do Sol e o único conhecido a abrigar vida. Possui água em estado líquido, atmosfera rica em oxigênio e uma diversidade de ecossistemas. A sua superfície é dividida entre continentes e oceanos."
+        "description": "Tipo: Planeta rochoso\nNúmero de satélites: 1\nTamanho: 12.742 km de diâmetro\nMassa: 5,97 × 10^24 kg\nPossui Anéis: Não\nComposição: Rocha, metal, água\nCuriosidade: Cerca de 71% da superfície terrestre é coberta por água."
     },
     {
         "name": "mars",
-        "description": "Marte, o Planeta Vermelho, é o quarto a partir do Sol. Tem solo avermelhado por causa do óxido de ferro, calotas polares, montanhas e o maior vulcão do Sistema Solar. Cientistas buscam sinais de vida passada ou presente em seu solo."
+        "description": "Tipo: Planeta rochoso\nNúmero de satélites: 2\nTamanho: 6.779 km de diâmetro\nMassa: 6,42 × 10^23 kg\nPossui Anéis: Não\nComposição: Rocha, óxido de ferro\nCuriosidade: Marte tem a montanha mais alta do sistema solar conhecido."
     },
     {
         "name": "jupiter",
-        "description": "Júpiter é o maior planeta do Sistema Solar, um gigante gasoso composto por hidrogênio e hélio. É conhecido pela Grande Mancha Vermelha, uma tempestade gigante, e por seus mais de 90 satélites naturais, incluindo Ganimedes e Europa."
+        "description": "Tipo: Gigante gasoso\nNúmero de satélites: 95\nTamanho: 139.820 km de diâmetro\nMassa: 1,90 × 10^27 kg\nPossui Anéis: Sim\nComposição: Hidrogênio e Hélio\nCuriosidade: Júpiter poderia caber mais de mil Terras em seu interior."
     },
     {
         "name": "saturn",
-        "description": "Saturno é o segundo maior planeta e é famoso por seu sistema de anéis, compostos de gelo e poeira. Também é um gigante gasoso com dezenas de luas, incluindo Titã, que possui atmosfera densa e pode conter oceanos subterrâneos."
+        "description": "Tipo: Gigante gasoso\nNúmero de satélites: 146\nTamanho: 116.460 km de diâmetro\nMassa: 5,68 × 10^26 kg\nPossui Anéis: Sim\nComposição: Hidrogênio e Hélio\nCuriosidade: Os anéis de Saturno podem ser vistos da Terra facilmente."
     },
     {
         "name": "uranus",
-        "description": "Urano é um gigante gasoso com coloração azul-esverdeada devido ao metano em sua atmosfera. Ele gira praticamente de lado, o que causa estações extremas. Sua atmosfera é composta por hidrogênio, hélio e metano congelado."
+        "description": "Tipo: Gigante gasoso (gelado)\nNúmero de satélites: 27\nTamanho: 50.724 km de diâmetro\nMassa: 8,68 × 10^25 kg\nPossui Anéis: Sim\nComposição: Hidrogênio, Hélio e Metano\nCuriosidade: Urano gira de lado, com seu eixo quase na horizontal."
     },
     {
         "name": "neptune",
-        "description": "Netuno é o planeta mais distante do Sol. É um gigante gasoso de coloração azul intensa e possui ventos extremamente fortes, os mais rápidos do Sistema Solar. Sua atmosfera é composta por hidrogênio, hélio e metano."
+        "description": "Tipo: Gigante gasoso (gelado)\nNúmero de satélites: 14\nTamanho: 49.244 km de diâmetro\nMassa: 1,02 × 10^26 kg\nPossui Anéis: Sim\nComposição: Hidrogênio, Hélio e Metano\nCuriosidade: Netuno tem os ventos mais rápidos de todo o sistema solar."
     }
 ]

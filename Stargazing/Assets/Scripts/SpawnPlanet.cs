@@ -3,6 +3,7 @@ using UnityEngine;
 using System.IO;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class SpawnPlanet : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SpawnPlanet : MonoBehaviour
     public TMP_Text description;
     public GameObject canvas;
     private CanvasGroup canvasGroup;
+    public Image planetImage;
 
     private GameObject sunAnchor;
 
@@ -136,6 +138,7 @@ public class SpawnPlanet : MonoBehaviour
             info.canva = canvasGroup;
             info.canva2 = canvas;
             info.title = title;
+            info.planetImage = planetImage;
             info.description = description;
 
             // === Criar objeto do texto ===
@@ -156,10 +159,14 @@ public class SpawnPlanet : MonoBehaviour
             textMesh.rectTransform.sizeDelta = new Vector2(40f, 3f); // largura/altura do espaço do texto
 
             // Escala fixa pequena (ajustável)
-            if (planetRadius < 6371.0f)
+            if (planetRadius < 6500.0f)
             {
                 labelObject.transform.localScale = Vector3.one * 0.65f;
-            } 
+            }
+            else if (planetRadius < 30000f)
+            {
+                labelObject.transform.localScale = Vector3.one * 0.30f;
+            }
             else
             {
                 labelObject.transform.localScale = Vector3.one * 0.15f;
@@ -259,7 +266,7 @@ public class PlanetInfoData
     public string description;
 }
 
-public class PlanetInfo : MonoBehaviour
+public class PlanetInfo : MonoBehaviour, IPointerClickHandler
 {
     public string planetName;
     private static Dictionary<string, string> planetDescriptions;
@@ -268,6 +275,7 @@ public class PlanetInfo : MonoBehaviour
     public GameObject canva2;
     public TMP_Text title;
     public TMP_Text description;
+    public Image planetImage;
 
     void Start()
     {
@@ -275,6 +283,32 @@ public class PlanetInfo : MonoBehaviour
             LoadPlanetInfo();
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (planetDescriptions != null && planetDescriptions.ContainsKey(planetName.ToLower()))
+        {
+            canva.alpha = 1f;
+            canva.interactable = true;
+            canva.blocksRaycasts = true;
+            canva2.SetActive(true);
+            title.text = SpawnPlanet.PlanetPortugueseName[planetName];
+            PlanetOrbit.SetPaused(true);
+            description.text = planetDescriptions[planetName.ToLower()];
+            LoadImage();
+        }
+    }
+
+    public void LoadImage()
+    {
+        Sprite sprite = Resources.Load<Sprite>(planetName.ToLower());
+
+        if (sprite != null)
+            planetImage.sprite = sprite;
+        else
+            Debug.LogWarning("Sprite não encontrado.");
+    }
+
+    /*
     void OnMouseDown()
     {
         if (planetDescriptions != null && planetDescriptions.ContainsKey(planetName.ToLower()))
@@ -290,7 +324,7 @@ public class PlanetInfo : MonoBehaviour
             description.text = planetDescriptions[planetName.ToLower()];
             // Show UI panel here if needed
         }
-    }
+    }*/
 
     private void LoadPlanetInfo()
     {
