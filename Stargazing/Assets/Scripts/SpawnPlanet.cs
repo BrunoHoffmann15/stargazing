@@ -17,43 +17,6 @@ public class SpawnPlanet : MonoBehaviour
 
     private GameObject sunAnchor;
 
-    private readonly string[] solarSystemOrder = new string[]
-    {
-        "mercury",
-        "venus",  
-        "earth",  
-        "mars",   
-        "jupiter",
-        "saturn",
-        "uranus",
-        "neptune"
-    };
-
-    private readonly Dictionary<string, float> planetRadiiKm = new Dictionary<string, float>
-    {
-        {"sun", 696340f},
-        {"mercury", 2439.7f},
-        {"venus", 6051.8f},
-        {"earth", 6371.0f},
-        {"mars", 3389.5f},
-        {"jupiter", 69911f},
-        {"saturn", 58232f},
-        {"uranus", 25362f},
-        {"neptune", 24622f}
-    };
-
-    public static readonly Dictionary<string, string> PlanetPortugueseName = new Dictionary<string, string>
-    {
-        {"sun", "Sol"},
-        {"mercury", "Mercúrio"},
-        {"venus", "Vênus"},
-        {"earth", "Terra"},
-        {"mars", "Marte"},
-        {"jupiter", "Júpiter"},
-        {"saturn", "Saturno"},
-        {"uranus", "Urano"},
-        {"neptune", "Netuno"}
-    };
 
 
     void Start()
@@ -103,12 +66,12 @@ public class SpawnPlanet : MonoBehaviour
         float currentDistance = planetDistanceStep;
 
         float sunScale = 0.5f; // Use the same value as in SpawnSun
-        float sunRadius = planetRadiiKm["sun"];
+        float sunRadius = PlanetInfoRepository.planetRadiiKm["sun"];
         float exaggerationFactor = 20f; // <--- exaggerate the differences!
 
-        for (int i = 1; i < solarSystemOrder.Length; i++)
+        for (int i = 1; i < PlanetInfoRepository.solarSystemOrder.Length; i++)
         {
-            string planetName = solarSystemOrder[i];
+            string planetName = PlanetInfoRepository.solarSystemOrder[i];
             GameObject prefab = prefabObj.Find(obj => obj.name.ToLower() == planetName);
 
             if (prefab == null)
@@ -118,7 +81,7 @@ public class SpawnPlanet : MonoBehaviour
             }
 
             // Exaggerated normalized scale
-            float planetRadius = planetRadiiKm[planetName];
+            float planetRadius = PlanetInfoRepository.planetRadiiKm[planetName];
             float normalizedScale = (planetRadius / sunRadius) * sunScale * exaggerationFactor;
 
             Vector3 planetPosition = sunAnchor.transform.position
@@ -134,12 +97,6 @@ public class SpawnPlanet : MonoBehaviour
             // Attach PlanetInfo and set planetName
             var info = planetInstance.AddComponent<PlanetInfo>();
             info.planetName = planetName;
-            
-            info.canva = canvasGroup;
-            info.canva2 = canvas;
-            info.title = title;
-            info.planetImage = planetImage;
-            info.description = description;
 
             // === Criar objeto do texto ===
             GameObject labelObject = new GameObject("Label_" + planetName);
@@ -151,7 +108,7 @@ public class SpawnPlanet : MonoBehaviour
 
             // Adiciona o texto
             TextMeshPro textMesh = labelObject.AddComponent<TextMeshPro>();
-            textMesh.text = PlanetPortugueseName[planetName];
+            textMesh.text = PlanetInfoRepository.PlanetPortugueseName[planetName];
             textMesh.fontSize = 100f;
             textMesh.enableAutoSizing = true;
             textMesh.alignment = TextAlignmentOptions.Center;
@@ -258,54 +215,29 @@ public class PlanetOrbit : MonoBehaviour
     }
 }
 
-
-[System.Serializable]
-public class PlanetInfoData
-{
-    public string name;
-    public string description;
-}
-
 public class PlanetInfo : MonoBehaviour, IPointerClickHandler
 {
     public string planetName;
-    private static Dictionary<string, string> planetDescriptions;
     private static bool showingInfo = false;
-    public CanvasGroup canva;
-    public GameObject canva2;
-    public TMP_Text title;
-    public TMP_Text description;
-    public Image planetImage;
 
     void Start()
     {
-        if (planetDescriptions == null)
-            LoadPlanetInfo();
+
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (planetDescriptions != null && planetDescriptions.ContainsKey(planetName.ToLower()))
+        /*if (PlanetInfoRepository.planetDescriptions != null && PlanetInfoRepository.planetDescriptions.ContainsKey(planetName.ToLower()))
         {
             canva.alpha = 1f;
             canva.interactable = true;
             canva.blocksRaycasts = true;
             canva2.SetActive(true);
-            title.text = SpawnPlanet.PlanetPortugueseName[planetName];
+            title.text = PlanetInfoRepository.PlanetPortugueseName[planetName];
             PlanetOrbit.SetPaused(true);
-            description.text = planetDescriptions[planetName.ToLower()];
+            description.text = PlanetInfoRepository.planetDescriptions[planetName.ToLower()];
             LoadImage();
-        }
-    }
-
-    public void LoadImage()
-    {
-        Sprite sprite = Resources.Load<Sprite>(planetName.ToLower());
-
-        if (sprite != null)
-            planetImage.sprite = sprite;
-        else
-            Debug.LogWarning("Sprite não encontrado.");
+        }*/
     }
 
     /*
@@ -326,26 +258,4 @@ public class PlanetInfo : MonoBehaviour, IPointerClickHandler
         }
     }*/
 
-    private void LoadPlanetInfo()
-    {
-        planetDescriptions = new Dictionary<string, string>();
-        string path = Path.Combine(Application.dataPath, "Scripts/planetInfo.json");
-        if (!File.Exists(path))
-        {
-            Debug.LogWarning("planetInfo.json not found at: " + path);
-            return;
-        }
-        string json = File.ReadAllText(path);
-        PlanetInfoData[] infos = JsonUtility.FromJson<PlanetInfoDataArray>("{\"items\":" + json + "}").items;
-        foreach (var info in infos)
-        {
-            planetDescriptions[info.name.ToLower()] = info.description;
-        }
-    }
-
-    [System.Serializable]
-    private class PlanetInfoDataArray
-    {
-        public PlanetInfoData[] items;
-    }
 }

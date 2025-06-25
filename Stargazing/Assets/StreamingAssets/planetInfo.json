@@ -1,0 +1,38 @@
+[
+    {
+        "name": "sun",
+        "description": "Tipo: Estrela\nNúmero de satélites: 0\nTamanho: 1.391.000 km de diâmetro\nMassa: 1,989 × 10^30 kg\nPossui Anéis: Não\nComposição: Hidrogênio e Hélio\nCuriosidade: A luz solar leva 8 minutos para alcançar Terra."
+    },
+    {
+        "name": "mercury",
+        "description": "Tipo: Planeta rochoso\nNúmero de satélites: 0\nTamanho: 4.879 km de diâmetro\nMassa: 3,30 × 10^23 kg\nPossui Anéis: Não\nComposição: Rocha e metal\nCuriosidade: Um dia em Mercúrio dura mais que seu ano."
+    },
+    {
+        "name": "venus",
+        "description": "Tipo: Planeta rochoso\nNúmero de satélites: 0\nTamanho: 12.104 km de diâmetro\nMassa: 4,87 × 10^24 kg\nPossui Anéis: Não\nComposição: Rocha e metal\nCuriosidade: Vênus gira ao contrário da maioria dos planetas conhecidos."
+    },
+    {
+        "name": "earth",
+        "description": "Tipo: Planeta rochoso\nNúmero de satélites: 1\nTamanho: 12.742 km de diâmetro\nMassa: 5,97 × 10^24 kg\nPossui Anéis: Não\nComposição: Rocha, metal, água\nCuriosidade: Cerca de 71% da superfície terrestre é coberta por água."
+    },
+    {
+        "name": "mars",
+        "description": "Tipo: Planeta rochoso\nNúmero de satélites: 2\nTamanho: 6.779 km de diâmetro\nMassa: 6,42 × 10^23 kg\nPossui Anéis: Não\nComposição: Rocha, óxido de ferro\nCuriosidade: Marte tem a montanha mais alta do sistema solar conhecido."
+    },
+    {
+        "name": "jupiter",
+        "description": "Tipo: Gigante gasoso\nNúmero de satélites: 95\nTamanho: 139.820 km de diâmetro\nMassa: 1,90 × 10^27 kg\nPossui Anéis: Sim\nComposição: Hidrogênio e Hélio\nCuriosidade: Júpiter poderia caber mais de mil Terras em seu interior."
+    },
+    {
+        "name": "saturn",
+        "description": "Tipo: Gigante gasoso\nNúmero de satélites: 146\nTamanho: 116.460 km de diâmetro\nMassa: 5,68 × 10^26 kg\nPossui Anéis: Sim\nComposição: Hidrogênio e Hélio\nCuriosidade: Os anéis de Saturno podem ser vistos da Terra facilmente."
+    },
+    {
+        "name": "uranus",
+        "description": "Tipo: Gigante gasoso (gelado)\nNúmero de satélites: 27\nTamanho: 50.724 km de diâmetro\nMassa: 8,68 × 10^25 kg\nPossui Anéis: Sim\nComposição: Hidrogênio, Hélio e Metano\nCuriosidade: Urano gira de lado, com seu eixo quase na horizontal."
+    },
+    {
+        "name": "neptune",
+        "description": "Tipo: Gigante gasoso (gelado)\nNúmero de satélites: 14\nTamanho: 49.244 km de diâmetro\nMassa: 1,02 × 10^26 kg\nPossui Anéis: Sim\nComposição: Hidrogênio, Hélio e Metano\nCuriosidade: Netuno tem os ventos mais rápidos de todo o sistema solar."
+    }
+]
