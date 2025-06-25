@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +7,11 @@ public class StartMenuController : MonoBehaviour
     public void StartARScene()
     {
         SceneManager.LoadScene("MainScene");
+    }
+
+    public void AccessHelpScreen()
+    {
+        SceneManager.LoadScene("HelpScene");
     }
 
     // Update is called once per frame
